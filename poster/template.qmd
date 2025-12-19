@@ -1,0 +1,217 @@
+---
+# ============================================
+# ★ EDIT YOUR POSTER INFO HERE ★
+# ============================================
+title: "Your Research Poster Title Goes Here"
+subtitle: "Subtitle or Additional Context"
+conference: "Conference Name 2025"
+
+# Author line with superscript affiliations (use ¹²³ for numbers)
+# Use <strong> for bold, not markdown **
+author-line: "<strong>First Author</strong>¹, Second Author¹², Third Author²"
+
+# Affiliations (displayed below author names)
+affiliation-line: "¹College of Information Science, University of Arizona    ²Department of Computer Science, University of Arizona"
+
+contact-email: "author1@arizona.edu"
+
+# ============================================
+# FORMAT: Generally don't need to change these
+# ============================================
+format:
+  html:
+    theme:
+      - cosmo
+      - infosci-poster.scss
+    toc: false
+    embed-resources: true
+    page-layout: custom
+    title-block-style: none
+    section-divs: false
+    include-in-header:
+      text: |
+        <style>
+        /* Remove Quarto default margins and enable landscape */
+        html, body { margin: 0; padding: 0; overflow-x: auto; }
+        main.content { padding: 0; margin: 0; max-width: none; }
+        #quarto-content { padding: 0; }
+        </style>
+    include-after-body:
+      text: |
+        <style>
+        /* Fix column grid layout - override Quarto defaults (loaded last) */
+        .poster-body { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; width: 100% !important; }
+        .poster-body > .column, .poster-body > div.column { flex: unset !important; width: auto !important; overflow-x: visible !important; min-width: 0 !important; }
+        /* Fix gap between h2 headers and card content */
+        .column h2 + p, .column h2 + ul, .column h2 + ol, .column h2 + div,
+        .column h2 ~ p, .column h2 ~ ul, .column h2 ~ ol, .column h2 ~ div {
+          margin-top: -14pt !important;
+        }
+        /* Fix list indentation */
+        .column ul, .column ol { padding-left: 0.5in !important; }
+        .column li { margin-bottom: 0.08in; }
+        </style>
+---
+
+```{=html}
+<div class="poster">
+  <header class="poster-header">
+    <div class="logo-left">
+      <img src="assets/infosci-logo-reverse.png" alt="College of Information Science logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-placeholder" style="display:none;">⚠ Add logo</div>
+    </div>
+    <div class="title-block">
+      <h1 class="poster-title">{{< meta title >}}</h1>
+      <p class="poster-subtitle">{{< meta subtitle >}}</p>
+      <span class="conference-badge">{{< meta conference >}}</span>
+    </div>
+    <div class="logo-right">
+      <img src="assets/ua-logo-white.png" alt="University of Arizona logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-placeholder" style="display:none;">⚠ Add logo</div>
+    </div>
+  </header>
+
+  <div class="author-bar">
+    <span class="authors">{{< meta author-line >}} &nbsp;|&nbsp; {{< meta affiliation-line >}}</span>
+    <span class="contact">✉ {{< meta contact-email >}}</span>
+  </div>
+
+  <div class="poster-body">
+    <div class="column">
+```
+
+## Introduction
+
+Provide background and context for your research. What problem are you addressing? Why is it important?
+
+- Key point about the research context
+- The gap in current knowledge
+- Your research question or hypothesis
+
+::: {.callout-note}
+## Research Question
+What is the main question your research addresses?
+:::
+
+## Methods
+
+**Participants/Data**
+
+- Sample size and characteristics
+- Data source description
+
+**Procedure**
+
+1. First step in methodology
+2. Second step in process
+3. Analysis approach
+
+**Analysis**
+
+Brief description of analytical methods used.
+
+## References {.references}
+
+Author, A. A., & Author, B. B. (2024). Title of the article. *Journal Name*, *42*(3), 123-145.
+
+Author, C. C. (2023). *Title of book* (2nd ed.). Publisher.
+
+```{=html}
+    </div>
+    <div class="column column-center">
+```
+
+## Results
+
+Present your key findings with supporting visualizations.
+
+::: {.stat-boxes}
+::: {.stat-box}
+**94%**
+
+Success Rate
+:::
+
+::: {.stat-box}
+**N=500**
+
+Sample Size
+:::
+
+::: {.stat-box}
+**p<.001**
+
+Significance
+:::
+:::
+
+**Key Finding 1**
+
+Description of first major result with supporting data. Include specific numbers and statistical significance where appropriate.
+
+**Key Finding 2**
+
+Description of second major result with context and implications for the field.
+
+::: {.figure-placeholder}
+**INSERT FIGURE HERE**
+
+Recommended: 1200×800px minimum, PNG or SVG
+
+*Figure 1.* Description of your visualization
+:::
+
+```{=html}
+    </div>
+    <div class="column">
+```
+
+## Discussion
+
+Interpret your findings in context of existing literature.
+
+- What do the results mean?
+- How do they compare to previous work?
+- What are the limitations?
+- What are the implications for practice?
+
+Our findings suggest that [key interpretation]. This aligns with previous research while extending understanding of [topic].
+
+## Conclusions
+
+::: {.conclusions-box}
+**Key Takeaways:**
+
+1. First main conclusion from study
+2. Second main conclusion
+3. Implications for future research
+:::
+
+## Acknowledgments
+
+This research was supported by [funding source]. We thank [collaborators/participants] for their contributions.
+
+::: {.qr-box}
+::: {.qr-content}
+**Scan for More**
+
+Paper, data, & materials
+
+[yourwebsite.arizona.edu]{.qr-url}
+:::
+::: {.qr-placeholder}
+QR CODE
+:::
+:::
+
+```{=html}
+    </div>
+  </div>
+
+  <footer class="poster-footer">
+    <span>College of Information Science</span>
+    <span><strong>University of Arizona</strong></span>
+    <span>{{< meta conference >}}</span>
+  </footer>
+</div>
+```

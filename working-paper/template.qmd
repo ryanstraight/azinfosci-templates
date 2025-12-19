@@ -1,0 +1,222 @@
+---
+# Metadata for document properties (not rendered as title page)
+title: ""
+title-meta: "Working Paper Title"
+author-meta: "Your Name"
+
+# Citation metadata for citeable articles
+# See: https://quarto.org/docs/authoring/create-citeable-articles.html
+citation:
+  title: "Working Paper Title"
+  author:
+    - name: Your Name
+      orcid: 0000-0000-0000-0000
+      affiliation: "College of Information Science, University of Arizona"
+  type: article
+  container-title: "InfoSci Working Paper Series"
+  issued: 2025
+  url: https://example.com/working-paper
+
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      top: 1in
+      bottom: 1in
+      left: 1.25in
+      right: 1.25in
+    fontsize: 11pt
+    mainfont: "Times New Roman"
+    number-sections: true
+bibliography: references.bib
+csl: assets/apa.csl
+reference-section-title: References
+---
+
+```{=typst}
+// UA Brand Colors
+#let ua-blue = rgb("#0C234B")
+#let ua-red = rgb("#AB0520")
+#let ua-cool-gray = rgb("#E2E9EB")
+
+// Working Paper Header
+#set page(margin: (top: 1in, bottom: 1in, left: 1.25in, right: 1.25in))
+
+#grid(
+  columns: (1fr, auto),
+  align: (left + top, right + top),
+  [#image("assets/infosci-logo.png", width: 2.5in)],
+  [
+    #text(size: 10pt, fill: ua-blue)[
+      *InfoSci Working Paper Series* \
+      WP-#datetime.today().display("[year]")-XXX
+    ]
+  ]
+)
+
+#v(0.3in)
+#line(length: 100%, stroke: 1pt + ua-blue)
+#v(0.4in)
+
+// Title
+#align(center)[
+  #text(size: 20pt, weight: "bold", fill: ua-blue)[
+    Working Paper Title
+  ]
+
+  #v(0.15in)
+
+  #text(size: 14pt, style: "italic")[
+    A Descriptive Subtitle
+  ]
+]
+
+#v(0.3in)
+
+// Author Block
+#align(center)[
+  #text(size: 12pt)[
+    *Your Name* \
+    #text(size: 10pt)[
+      College of Information Science \
+      University of Arizona \
+      youremail\@arizona.edu \
+      ORCID: 0000-0000-0000-0000
+    ]
+  ]
+]
+
+#v(0.2in)
+
+#align(center)[
+  #text(size: 10pt)[
+    #datetime.today().display("[month repr:long] [year]")
+  ]
+]
+
+#v(0.3in)
+
+// Abstract Box
+#rect(
+  width: 100%,
+  fill: ua-cool-gray,
+  inset: 1em,
+  radius: 4pt,
+  [
+    #text(weight: "bold", size: 11pt)[Abstract]
+
+    #v(0.1in)
+
+    #text(size: 10pt)[
+      This is the abstract for the working paper. It should provide a concise summary of the research question, methodology, key findings, and implications. The abstract typically ranges from 150-250 words and should enable readers to quickly assess the relevance and contribution of the paper.
+    ]
+
+    #v(0.15in)
+
+    #text(size: 10pt)[
+      *Keywords:* keyword one, keyword two, keyword three
+    ]
+  ]
+)
+
+#v(0.3in)
+#line(length: 100%, stroke: 0.5pt + ua-blue)
+#v(0.3in)
+
+// Heading styles
+#show heading.where(level: 1): it => {
+  v(0.25in)
+  text(size: 14pt, weight: "bold", fill: ua-blue)[#it.body]
+  v(0.1in)
+}
+
+#show heading.where(level: 2): it => {
+  v(0.2in)
+  text(size: 12pt, weight: "bold", fill: ua-blue)[#it.body]
+  v(0.08in)
+}
+
+#show heading.where(level: 3): it => {
+  v(0.15in)
+  text(size: 11pt, weight: "bold")[#it.body]
+  v(0.05in)
+}
+```
+
+# Introduction
+
+[Introduce the research problem, its significance, and the gap in existing knowledge that this paper addresses. Conclude with a clear statement of the paper's purpose and research questions or hypotheses.]
+
+# Literature Review
+
+[Review relevant prior research, theoretical frameworks, and empirical findings. Identify the theoretical foundation for your work and position your contribution within the existing literature.]
+
+## Theoretical Framework
+
+[Describe the theoretical lens or framework guiding your research.]
+
+## Prior Research
+
+[Synthesize relevant empirical studies and identify gaps.]
+
+# Methodology
+
+[Describe your research design, data collection procedures, sample or participants, and analytical approach. Provide sufficient detail for replication.]
+
+## Research Design
+
+[Describe the overall approach (qualitative, quantitative, mixed methods).]
+
+## Data Collection
+
+[Detail your data sources and collection procedures.]
+
+## Analysis
+
+[Explain your analytical methods and any tools used.]
+
+# Findings
+
+[Present your results clearly and systematically. Use appropriate tables, figures, or visualizations to support your narrative.]
+
+## Finding One
+
+[Present first major finding with supporting evidence.]
+
+## Finding Two
+
+[Present second major finding with supporting evidence.]
+
+# Discussion
+
+[Interpret your findings in relation to your research questions and the existing literature. Discuss theoretical and practical implications.]
+
+## Implications for Theory
+
+[Discuss contributions to theoretical understanding.]
+
+## Implications for Practice
+
+[Discuss practical applications and recommendations.]
+
+## Limitations
+
+[Acknowledge limitations of the study and their potential impact on findings.]
+
+# Conclusion
+
+[Summarize the main contributions, key findings, and directions for future research.]
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+```{=typst}
+#v(0.5in)
+#line(length: 100%, stroke: 0.5pt + ua-blue)
+#v(0.1in)
+#text(size: 9pt, style: "italic")[
+  *Disclaimer:* This is a working paper and represents work in progress. Please do not cite without permission from the author(s). Comments and suggestions are welcome.
+]
+```

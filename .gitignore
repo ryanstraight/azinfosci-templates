@@ -1,0 +1,25 @@
+# Rendered outputs
+*.html
+*.pdf
+!assets/**/*.pdf
+/_site/
+/_book/
+
+# Quarto cache
+/.quarto/
+*_cache/
+*_files/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# R artifacts
+.Rhistory
+.RData
+.Rproj.user/

@@ -1,0 +1,254 @@
+---
+title: "Document Title"
+subtitle: "Descriptive Subtitle"
+author: "Your Name"
+date: today
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    embed-resources: true
+    theme:
+      - cosmo
+      - infosci-document.scss
+    code-fold: false
+    mermaid:
+      theme: neutral
+  docx:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    highlight-style: github
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    colorlinks: true
+    linkcolor: "0C234B"
+    urlcolor: "AB0520"
+    documentclass: article
+    geometry:
+      - left=1in
+      - right=2.5in
+      - top=1in
+      - bottom=1in
+      - marginparwidth=1.75in
+      - marginparsep=0.25in
+    include-in-header:
+      text: |
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhead[L]{\small\leftmark}
+        \fancyhead[R]{\small University of Arizona}
+        \fancyfoot[C]{\thepage}
+
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Load azinfosci for theme and colors
+# library(azinfosci)
+
+# Or define theme locally if package not installed
+theme_infosci <- function(base_size = 12) {
+  ua_blue <- "#0C234B"
+  ua_cool_gray <- "#E2E9EB"
+
+  ggplot2::theme_minimal(base_size = base_size) +
+    ggplot2::theme(
+      plot.title = ggplot2::element_text(face = "bold", color = ua_blue),
+      plot.subtitle = ggplot2::element_text(color = "#555555"),
+      axis.title = ggplot2::element_text(face = "bold", color = ua_blue),
+      panel.grid.major = ggplot2::element_line(color = ua_cool_gray),
+      panel.grid.minor = ggplot2::element_line(color = ua_cool_gray),
+      strip.text = ggplot2::element_text(face = "bold", color = ua_blue),
+      strip.background = ggplot2::element_rect(fill = ua_cool_gray, color = NA)
+    )
+}
+
+# UA color palette
+infosci_colors <- c(
+  arizonablue = "#0C234B",
+  arizonared = "#AB0520",
+  oasis = "#378DBD",
+  azurite = "#1E5288",
+  leaf = "#70B865",
+  river = "#007D84"
+)
+```
+
+# Introduction {#sec-intro}
+
+This document template provides a clean, professional layout with University of Arizona branding. It's designed for training materials, research protocols, documentation, and other professional documents.
+
+## Key Features
+
+This template includes:
+
+- **Left-side navigation** with automatic table of contents
+- **UA brand colors** throughout
+- **Custom callout styles** for different types of content
+- **Margin notes** for supplementary information
+- **Mermaid diagrams** with neutral theming
+- **Collapsible sections** for detailed content
+
+::: {.column-margin}
+Margin notes appear in the right margin and are useful for supplementary information, definitions, or cross-references.
+:::
+
+# Using Callout Boxes {#sec-callouts}
+
+Quarto's built-in callout boxes are styled with UA colors:
+
+::: {.callout-note}
+## Note
+Use notes for supplementary information that clarifies the main content.
+:::
+
+::: {.callout-tip}
+## Tip
+Tips provide helpful suggestions or best practices.
+:::
+
+::: {.callout-warning}
+## Warning
+Warnings alert readers to potential issues or common mistakes.
+:::
+
+::: {.callout-important}
+## Important
+Important callouts highlight critical information that shouldn't be missed.
+:::
+
+# Custom Content Classes {#sec-custom}
+
+## Highlighted Statements
+
+Use the `.highlight-box` class for key statements or examples:
+
+::: {.highlight-box}
+**Example Statement**: "This is an important statement that deserves visual emphasis in your document."
+:::
+
+## Definition Boxes
+
+Use `.definition-box` for defining key terms:
+
+::: {.definition-box}
+**Term**: A clear, concise definition of the term with relevant context.
+:::
+
+## Practice or Exercise Boxes
+
+Use `.practice-box` for exercises, practice questions, or worked examples:
+
+::: {.practice-box}
+**Practice Question**: How would you apply this concept in your work?
+
+<details>
+<summary>Answer</summary>
+The answer to the practice question goes here. Collapsible sections keep the document clean while providing detailed explanations when needed.
+</details>
+:::
+
+# Diagrams and Visuals {#sec-diagrams}
+
+## Mermaid Diagrams
+
+Create flowcharts and diagrams using Mermaid:
+
+```{mermaid}
+flowchart LR
+    A[Input] --> B{Decision}
+    B -->|Yes| C[Process A]
+    B -->|No| D[Process B]
+    C --> E[Output]
+    D --> E
+
+    style A fill:#e6f0ff,stroke:#0C234B
+    style E fill:#ffe6e6,stroke:#AB0520
+```
+
+## Workflow Diagrams
+
+```{mermaid}
+flowchart TD
+    A[Step 1] --> B[Step 2]
+    B --> C[Step 3]
+    C --> D[Step 4]
+    D --> E[Complete]
+
+    style A fill:#0C234B,color:#fff
+    style E fill:#AB0520,color:#fff
+```
+
+# Tables {#sec-tables}
+
+Standard markdown tables are styled consistently:
+
+| Column A | Column B | Column C |
+|----------|----------|----------|
+| Item 1   | Value 1  | Note 1   |
+| Item 2   | Value 2  | Note 2   |
+| Item 3   | Value 3  | Note 3   |
+
+# Code Examples {#sec-code}
+
+Code blocks use UA-branded styling:
+
+```r
+# Example R code
+library(tidyverse)
+
+data |>
+  filter(category == "example") |>
+  summarize(mean_value = mean(value))
+```
+
+```python
+# Example Python code
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+result = df.groupby("category").mean()
+```
+
+# Two-Column Layout {#sec-columns}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Left Column
+
+Content for the left column goes here. This is useful for comparisons or parallel content.
+:::
+
+::: {.column width="50%"}
+### Right Column
+
+Content for the right column goes here. Both columns will display side by side.
+:::
+
+::::
+
+# Summary {#sec-summary}
+
+This template provides a professional foundation for various document types:
+
+1. **Training guides** - Use callouts, practice boxes, and collapsible sections
+2. **Research protocols** - Use definition boxes and structured headings
+3. **Documentation** - Use code blocks, diagrams, and tables
+4. **Reports** - Use all features with a clear hierarchical structure
+
+::: {.callout-tip}
+## Next Steps
+Customize this template by modifying the YAML header and replacing the content with your own material.
+:::

@@ -1,0 +1,182 @@
+/*-- scss:defaults --*/
+
+// Import shared UA Brand Colors
+@import "../assets/scss/_ua-colors";
+
+$primary: $ua-blue;
+$body-color: #333333;
+
+/*-- scss:rules --*/
+
+// Body styling - notebook feel
+body {
+  font-family: "Segoe UI", Georgia, serif;
+  background-color: #fafafa;
+}
+
+// Title styling
+h1.title {
+  color: $ua-blue;
+  border-bottom: 3px solid $ua-red;
+}
+
+.subtitle {
+  color: $ua-azurite;
+  font-style: italic;
+}
+
+// Entry date headers (h2)
+h2 {
+  color: $ua-blue;
+  background-color: $ua-cool-gray;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+  border-left: 4px solid $ua-red;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 1.1rem;
+}
+
+// Section headers within entries (h3)
+h3 {
+  color: $ua-azurite;
+  font-size: 1rem;
+  margin-top: 1.25rem;
+  border-bottom: 1px dashed $ua-cool-gray;
+  padding-bottom: 0.25rem;
+}
+
+// Entry header metadata
+.entry-header {
+  background-color: $ua-warm-gray;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+
+  strong {
+    color: $ua-blue;
+  }
+}
+
+// Checkbox styling for objectives/tasks
+input[type="checkbox"] {
+  accent-color: $ua-leaf;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+// Checkbox label text - explicit color for accessibility
+li:has(input[type="checkbox"]) {
+  color: $body-color;
+}
+
+// Completed tasks
+li:has(input:checked) {
+  color: #666; // Darker gray for better contrast
+  text-decoration: line-through;
+}
+
+// Code blocks - technical look
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid $ua-cool-gray;
+  border-left: 3px solid $ua-oasis;
+}
+
+code {
+  font-family: "Consolas", "Fira Code", monospace;
+  font-size: 0.9em;
+}
+
+// Callout boxes
+.callout-note {
+  border-left-color: $ua-oasis;
+  background-color: rgba($ua-oasis, 0.05);
+}
+
+.callout-warning {
+  border-left-color: $ua-red;
+}
+
+.callout-tip {
+  border-left-color: $ua-leaf;
+}
+
+// Tables
+table {
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+
+  th {
+    background-color: $ua-blue;
+    color: white;
+    padding: 0.5rem;
+  }
+
+  td {
+    padding: 0.5rem;
+    border-bottom: 1px solid $ua-cool-gray;
+  }
+}
+
+// Horizontal rules between entries
+hr {
+  border: none;
+  border-top: 2px solid $ua-cool-gray;
+  margin: 2rem 0;
+}
+
+// Notebook footer
+.notebook-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid $ua-blue;
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+// TOC styling - entry dates
+#TOC {
+  font-family: "Consolas", monospace;
+  font-size: 0.85rem;
+
+  a {
+    color: $ua-azurite;
+
+    &:hover {
+      color: $ua-red;
+    }
+  }
+}
+
+// Links
+a {
+  color: $ua-oasis;
+
+  &:hover {
+    color: $ua-red;
+  }
+}
+
+// Issue/resolution styling
+ul li strong {
+  color: $ua-red;
+}
+
+// Print optimization
+@media print {
+  h2 {
+    page-break-before: always;
+  }
+
+  h2:first-of-type {
+    page-break-before: avoid;
+  }
+
+  .entry-header {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

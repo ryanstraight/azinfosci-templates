@@ -1,0 +1,551 @@
+/*-- scss:defaults --*/
+
+// Import shared UA Brand Colors
+@import "../assets/scss/_ua-colors";
+
+// Theme mappings
+$body-bg: $ua-white;
+$body-color: #333333;
+$link-color: $ua-blue;
+$link-color-hover: $ua-red;
+$selection-bg: rgba($ua-blue, 0.2);
+$selection-color: $body-color;
+
+// Typography - UA Brand Guidelines
+// Proxima Nova is primary, with system fallbacks
+$font-family-sans-serif: 'proxima-nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !default;
+$font-family-serif: 'garamond-premier-pro', Georgia, 'Times New Roman', serif !default;
+$presentation-font-size-root: 40px;
+$presentation-line-height: 1.4;
+$presentation-h1-font-size: 2.0em;
+$presentation-h2-font-size: 1.6em;
+$presentation-h3-font-size: 1.3em;
+$presentation-h4-font-size: 1.0em;
+
+// Heading styles
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-color: $ua-blue;
+$presentation-heading-font-weight: 600;
+$presentation-heading-letter-spacing: -0.02em;
+$presentation-heading-text-transform: none;
+
+// Code
+$code-color: $ua-azurite;
+$code-bg: $ua-cool-gray;
+
+/*-- scss:rules --*/
+
+// Import Adobe Fonts (Proxima Nova, Garamond Premier Pro)
+// Note: Falls back to system fonts if Typekit unavailable (offline, blocked CDN)
+@import url('https://use.typekit.net/vem3yjd.css');
+
+// Local font fallback for offline use
+// Place .woff2 files in assets/fonts/ if needed for offline rendering
+@font-face {
+  font-family: 'proxima-nova-fallback';
+  src: local('Proxima Nova'), local('ProximaNova-Regular'), local('Arial');
+  font-display: swap;
+}
+
+// Apply consistent body font
+.reveal {
+  font-family: $font-family-sans-serif;
+}
+
+// Heading styles with UA branding
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  color: $ua-blue;
+  font-family: $font-family-sans-serif;
+}
+
+.reveal h1 {
+  font-weight: 700;
+}
+
+.reveal h2 {
+  font-weight: 600;
+  border-bottom: 3px solid $ua-red;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.8em;
+}
+
+// Link styling
+.reveal a {
+  color: $ua-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $ua-red;
+    text-decoration: underline;
+  }
+}
+
+// UA Blue text class
+.reveal .ua-blue {
+  color: $ua-blue;
+}
+
+// UA Red text class
+.reveal .ua-red {
+  color: $ua-red;
+}
+
+// Section title slides (dark background)
+.reveal section[data-background-color="#{$ua-blue}"],
+.reveal section[data-background-color="#{$ua-red}"] {
+  h1, h2, h3, h4 {
+    color: $ua-white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-bottom: none;
+  }
+
+  // Style for r-fit-text on section slides - use large explicit size
+  .r-fit-text {
+    color: $ua-white !important;
+    font-weight: 700;
+    font-size: 4em !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+}
+
+// Quote/callout boxes
+.reveal .quote-box {
+  background: $ua-cool-gray;
+  padding: 1.5em 2em;
+  border-radius: 8px;
+  border-left: 4px solid $ua-blue;
+  font-style: italic;
+  margin: 1.5em 0;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.reveal .quote-box.red {
+  border-left-color: $ua-red;
+}
+
+// Emphasis boxes
+.reveal .emphasis-box {
+  background: $ua-cool-gray;
+  padding: 1.2em 1.5em;
+  border-radius: 8px;
+  border-top: 4px solid $ua-blue;
+  margin: 1.5em 0;
+
+  strong {
+    color: $ua-blue;
+  }
+}
+
+.reveal .emphasis-box.red {
+  border-top-color: $ua-red;
+
+  strong {
+    color: $ua-red;
+  }
+}
+
+// Concept boxes (large text highlights)
+.reveal .concept-box {
+  background: $ua-cool-gray;
+  padding: 1.5em 2em;
+  border-radius: 8px;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.reveal .concept-box.blue {
+  border-left: 6px solid $ua-blue;
+  color: $ua-blue;
+}
+
+.reveal .concept-box.red {
+  border-left: 6px solid $ua-red;
+  color: $ua-chili;
+}
+
+// Principle list styling (numbered lists with emphasis)
+.reveal .principle-list {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: $ua-blue;
+
+  strong {
+    color: $ua-red;
+    font-weight: 700;
+  }
+}
+
+// Split-screen principle slides
+.reveal .principle-slide .columns.split-reveal {
+  height: 50vh;
+  margin: 0;
+  gap: 0;
+}
+
+.reveal .principle-slide .column.negative-side {
+  background: linear-gradient(135deg, $ua-blue 0%, darken($ua-blue, 10%) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: $ua-red;
+  }
+
+  .r-fit-text {
+    color: $ua-white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+.reveal .principle-slide .column.positive-side {
+  background: $ua-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+
+  .r-fit-text {
+    color: $ua-red;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+.reveal .small-label {
+  font-size: 0.7em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  opacity: 0.7;
+}
+
+.reveal .subtext {
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 1em;
+  font-style: italic;
+}
+
+// Highlight classes
+.reveal .highlight-red {
+  color: $ua-red;
+  font-weight: 700;
+}
+
+.reveal .highlight-blue {
+  color: $ua-blue;
+  font-weight: 700;
+}
+
+// Big centered concept text
+.reveal .big-concept {
+  font-size: 1.6em;
+  color: $ua-blue;
+  line-height: 1.4;
+  text-align: center;
+  margin: 1em auto;
+  max-width: 90%;
+}
+
+// List styling
+.reveal ul, .reveal ol {
+  line-height: 1.8;
+}
+
+.reveal ul li, .reveal ol li {
+  margin-bottom: 0.4em;
+}
+
+// Incremental reveal styling
+.reveal .incremental > * {
+  opacity: 0.3;
+}
+
+.reveal .incremental > *.current-fragment {
+  opacity: 1;
+}
+
+// Footer styling
+.reveal .footer {
+  font-size: 0.5em;
+  color: #666;
+}
+
+// Slide number styling
+.reveal .slide-number {
+  font-size: 0.5em;
+  color: $ua-blue;
+}
+
+// Title slide sizing (when title is used for logo)
+// Note: pipe syntax in YAML puts content in sibling p, not inside .subtitle
+.reveal .slides section.quarto-title-block .subtitle,
+.reveal .slides section.quarto-title-block .subtitle + p {
+  font-size: 2em;
+}
+
+.reveal .slides section.quarto-title-block .quarto-title-authors {
+  font-size: 1.4em;
+}
+
+.reveal .slides section.quarto-title-block .quarto-title-affiliation {
+  font-size: 1.2em;
+}
+
+.reveal .slides section.quarto-title-block .quarto-title-author-orcid img {
+  width: 0.6em;
+  height: 0.6em;
+  vertical-align: middle;
+}
+
+// Hide corner logo on slides with data-state="no-logo"
+// Usage: # {data-state="no-logo" background-color="#0C234B"}
+.no-logo .slide-logo {
+  display: none !important;
+}
+
+// Code blocks
+.reveal pre {
+  background: $ua-cool-gray;
+  border-radius: 8px;
+  border-left: 4px solid $ua-azurite;
+}
+
+.reveal code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+}
+
+// Quarto callout boxes styled for UA
+.reveal .callout {
+  border-radius: 8px;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+}
+
+.reveal .callout-note {
+  background: rgba($ua-azurite, 0.1);
+  border-left: 4px solid $ua-azurite;
+}
+
+.reveal .callout-tip {
+  background: rgba($ua-leaf, 0.1);
+  border-left: 4px solid $ua-leaf;
+}
+
+.reveal .callout-warning {
+  background: rgba($ua-mesa, 0.1);
+  border-left: 4px solid $ua-mesa;
+}
+
+.reveal .callout-important {
+  background: rgba($ua-red, 0.1);
+  border-left: 4px solid $ua-red;
+}
+
+.reveal .callout-caution {
+  background: rgba($ua-bloom, 0.1);
+  border-left: 4px solid $ua-bloom;
+}
+
+.reveal .callout-title {
+  font-weight: 600;
+  margin-bottom: 0.3em;
+}
+
+// Social links styling
+.reveal .social-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+
+.reveal .social-links a {
+  color: $ua-white;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  font-size: 0.85em;
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  background: rgba($ua-white, 0.1);
+  transition: all 0.2s ease;
+}
+
+.reveal .social-links a:hover {
+  color: $ua-white;
+  background: rgba($ua-white, 0.25);
+}
+
+.reveal .social-links svg {
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor;
+}
+
+// Arrow centering helper for concept comparisons
+.reveal .arrow-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: $ua-red;
+  padding-top: 0.5em;
+  margin: 1em 0;
+}
+
+// Follow Along slide styling
+.reveal .speaker-image {
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border: 4px solid $ua-white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1em;
+}
+
+// Placeholder when no speaker image is provided
+.reveal .speaker-placeholder {
+  width: 350px;
+  height: 350px;
+  background: $ua-midnight; // Darker for better contrast with white text
+  border-radius: 50%;
+  border: 4px solid $ua-white;
+  margin: 0 auto 1em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $ua-white;
+}
+
+// QR code styling on dark backgrounds
+.reveal section[data-background-color="#{$ua-blue}"] canvas,
+.reveal section[data-background-color="#{$ua-red}"] canvas {
+  display: block;
+  margin: 0 auto;
+  background: $ua-white;
+  padding: 0.5em;
+  border-radius: 8px;
+}
+
+// Follow along slide text styling
+.reveal .follow-along-text {
+  color: $ua-white;
+  text-align: left;
+  margin-left: 5em;
+
+  strong {
+    font-size: 1.3em;
+  }
+}
+
+.reveal .scan-text {
+  color: $ua-white;
+  font-style: italic;
+  margin-top: 1em;
+  opacity: 0.9;
+}
+
+// QR code column centering
+.reveal .qr-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.reveal .qr-link {
+  color: $ua-white;
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  display: block;
+}
+
+// ============================================
+// Accessibility Features
+// ============================================
+
+// Focus states for keyboard navigation
+.reveal a:focus,
+.reveal button:focus,
+.reveal [role="button"]:focus {
+  outline: 3px solid $ua-oasis;
+  outline-offset: 2px;
+}
+
+.reveal a:focus:not(:focus-visible),
+.reveal button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.reveal a:focus-visible,
+.reveal button:focus-visible {
+  outline: 3px solid $ua-oasis;
+  outline-offset: 2px;
+}
+
+// Focus on dark backgrounds
+.reveal section[data-background-color="#{$ua-blue}"],
+.reveal section[data-background-color="#{$ua-red}"] {
+  a:focus-visible,
+  button:focus-visible {
+    outline-color: $ua-white;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section {
+    transition: none !important;
+  }
+
+  .reveal .incremental > * {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .reveal .social-links a {
+    transition: none;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .reveal .quote-box,
+  .reveal .emphasis-box,
+  .reveal .concept-box {
+    border-width: 4px;
+  }
+
+  .reveal .callout {
+    border-left-width: 6px;
+  }
+}

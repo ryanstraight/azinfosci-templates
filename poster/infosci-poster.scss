@@ -1,0 +1,432 @@
+/*-- scss:defaults --*/
+
+// Import shared UA Brand Colors
+@import "../assets/scss/_ua-colors";
+
+/*-- scss:rules --*/
+
+// Reset and base
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-sans-serif;
+  background: #f5f5f5;
+}
+
+// Hide Quarto's auto-generated title block
+header#title-block-header,
+.quarto-title-block,
+#quarto-header,
+.title,
+.subtitle {
+  display: none !important;
+}
+
+// Override Quarto's default column styling (but not for poster columns)
+body > div.column {
+  flex: none !important;
+  overflow-x: visible !important;
+}
+
+// Poster columns should fill their grid cells
+.poster-body > div.column {
+  flex: unset !important;
+  width: 100% !important;
+}
+
+// Poster container
+.poster {
+  width: 36in;
+  height: 24in;
+  margin: 0 auto;
+  background: #F8F9FA;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; // Ensure children fill width
+  padding: 0.3in;
+  overflow: hidden;
+
+  // Force all direct children to full width
+  > * {
+    width: 100%;
+  }
+}
+
+// Header
+.poster-header {
+  background: $ua-blue;
+  padding: 0.4in 0.5in;
+  display: grid;
+  grid-template-columns: 2.2in 1fr 2.2in;
+  gap: 0.4in;
+  align-items: center;
+  border-radius: 0;
+}
+
+.logo-left, .logo-right {
+  background: $ua-white;
+  border-radius: 6pt;
+  height: 1.5in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2in;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.logo-placeholder {
+  color: $ua-red;
+  font-weight: bold;
+  font-size: 14pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 2pt dashed $ua-red;
+  border-radius: 4pt;
+}
+
+.title-block {
+  text-align: center;
+  color: $ua-white;
+}
+
+.poster-title {
+  font-size: 80pt;
+  font-weight: bold;
+  margin: 0 0 0.15in 0;
+  line-height: 1.1;
+}
+
+.poster-subtitle {
+  font-size: 36pt;
+  font-style: italic;
+  color: $ua-sky-light;  // Better contrast on UA Blue (4.6:1 vs 3.12:1)
+  margin: 0 0 0.2in 0;
+}
+
+.conference-badge {
+  display: inline-block;
+  background: $ua-red;
+  color: $ua-white;
+  padding: 0.1in 0.4in;
+  border-radius: 6pt;
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+// Author bar
+.author-bar {
+  background: $ua-cool-gray;
+  border-bottom: 4pt solid $ua-red;
+  padding: 0.2in 0.5in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5in;
+  font-size: 24pt;
+}
+
+.authors {
+  color: $ua-blue;
+}
+
+.contact {
+  color: $ua-oasis;
+  font-weight: bold;
+}
+
+// Body - 3 columns
+.poster-body {
+  flex: 1;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 0.3in;
+  padding: 0.25in;
+  overflow: hidden;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+// Override Quarto's div.column defaults that break grid layout
+.poster-body > .column,
+.poster-body > div.column {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.25in;
+  min-width: 0 !important;
+  width: auto !important; // Let grid control width
+  max-width: none !important;
+  flex: unset !important; // Remove Quarto's flex: auto
+  overflow-x: visible !important; // Remove Quarto's overflow-x: auto
+}
+
+// Section styling
+.column h2 {
+  background: $ua-blue;
+  color: $ua-white;
+  margin: 0 !important;
+  margin-bottom: -3pt !important; // Pull next element up to close gap
+  padding: 0.15in 0.25in;
+  font-size: 36pt;
+  border-radius: 8pt 8pt 0 0;
+  border: 3pt solid $ua-blue;
+  position: relative;
+  z-index: 1;
+}
+
+.column h2 + p,
+.column h2 + ul,
+.column h2 + ol,
+.column h2 + div,
+.column h2 ~ p,
+.column h2 ~ ul,
+.column h2 ~ ol {
+  background: $ua-white;
+  border: 3pt solid $ua-blue;
+  border-top: none;
+  margin: 0 !important;
+  padding: 0.15in 0.2in;
+  font-size: 24pt;
+  line-height: 1.4;
+
+  // Lists inside cards need proper indentation
+  ul, ol {
+    padding-left: 0.4in;
+    margin: 0.1in 0;
+  }
+}
+
+.column section {
+  background: $ua-white;
+  border: 3pt solid $ua-blue;
+  border-radius: 8pt;
+  overflow: hidden;
+
+  h2 {
+    border-radius: 0;
+  }
+
+  > *:not(h2) {
+    padding: 0.2in 0.25in;
+    margin: 0;
+    font-size: 24pt;
+  }
+}
+
+// Stat boxes
+.stat-boxes {
+  display: flex;
+  gap: 0.2in;
+  margin: 0.2in 0;
+}
+
+.stat-box {
+  flex: 1;
+  background: $ua-red;
+  color: $ua-white;
+  text-align: center;
+  padding: 0.2in;
+  border-radius: 8pt;
+  font-size: 20pt;
+
+  strong {
+    display: block;
+    font-size: 48pt;
+    line-height: 1.2;
+  }
+}
+
+// Callout
+.callout-note,
+.callout {
+  background: rgba($ua-sky, 0.2);
+  border: 3pt solid $ua-oasis;
+  border-radius: 6pt;
+  padding: 0.2in;
+  margin: 0.15in 0;
+  font-size: 22pt;
+
+  .callout-title,
+  .callout-title-container {
+    font-weight: bold;
+    color: $ua-blue;
+    font-size: 24pt;
+  }
+}
+
+// Figure placeholder
+.figure-placeholder {
+  background: $ua-cool-gray;
+  border: 3pt solid $ua-blue;
+  border-radius: 6pt;
+  padding: 1in 0.3in;
+  text-align: center;
+  color: $ua-blue;
+  font-size: 24pt;
+  margin: 0.2in 0;
+
+  em {
+    display: block;
+    margin-top: 0.15in;
+    font-size: 20pt;
+  }
+}
+
+// Conclusions box
+.conclusions-box {
+  background: rgba($ua-red, 0.1);
+  border: 3pt solid $ua-red;
+  border-radius: 6pt;
+  padding: 0.2in;
+  font-size: 22pt;
+
+  strong {
+    color: $ua-red;
+    font-size: 26pt;
+  }
+
+  ol {
+    margin: 0.15in 0 0 0;
+    padding-left: 0.4in;
+  }
+}
+
+// QR box
+.qr-box {
+  background: $ua-blue;
+  border-radius: 8pt;
+  padding: 0.25in;
+  display: flex;
+  align-items: center;
+  gap: 0.25in;
+  margin-top: 0.2in; // Normal spacing, not pushed to bottom
+}
+
+.qr-content {
+  color: $ua-white;
+  font-size: 22pt;
+
+  strong {
+    font-size: 26pt;
+  }
+
+  .qr-url {
+    color: $ua-sky-light;
+    font-size: 18pt;
+  }
+}
+
+.qr-placeholder {
+  width: 1.5in;
+  height: 1.5in;
+  background: $ua-white;
+  border-radius: 6pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16pt;
+  color: $ua-blue;
+  flex-shrink: 0;
+}
+
+// References section
+.references {
+  font-size: 18pt !important;
+
+  p {
+    font-size: 18pt;
+    margin: 0.08in 0;
+  }
+}
+
+// Footer
+.poster-footer {
+  background: $ua-blue;
+  color: $ua-white;
+  padding: 0.15in 0.5in;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22pt;
+}
+
+// ============================================
+// PRINT STYLES - 36" x 24" poster
+// ============================================
+@media print {
+  @page {
+    size: 36in 24in landscape;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .poster {
+    width: 36in;
+    height: 24in;
+    margin: 0;
+    padding: 0.3in;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  // Ensure colors print
+  .poster-header,
+  .author-bar,
+  .column h2,
+  .stat-box,
+  .qr-box,
+  .poster-footer {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+// Screen preview - display at full size for proofing
+// Use browser zoom (Ctrl +/-) to zoom in/out as needed
+@media screen {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    padding: 20px;
+    background: #f5f5f5;
+    // Allow scrolling to view the full poster
+    overflow: auto;
+  }
+
+  // Override Quarto's main content wrapper
+  main.content,
+  #quarto-content,
+  .page-layout-custom {
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .poster {
+    // Display at full 36x24 inch size - scroll to navigate
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+}

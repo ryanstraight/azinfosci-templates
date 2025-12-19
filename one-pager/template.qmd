@@ -1,0 +1,173 @@
+---
+title: "Project or Program Title"
+subtitle: "Brief Tagline or Description"
+date: today
+version: "1.0"
+
+# Key metrics displayed prominently
+metrics:
+  - label: "Students Served"
+    value: "500+"
+  - label: "Success Rate"
+    value: "94%"
+  - label: "Year Established"
+    value: "2020"
+
+contact:
+  name: "Contact Name"
+  title: "Title/Position"
+  email: "email@arizona.edu"
+  phone: "(520) 621-0000"
+  website: "https://infosci.arizona.edu"
+
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      top: 0.5in
+      bottom: 0.5in
+      left: 0.6in
+      right: 0.6in
+    fontsize: 10pt
+    mainfont: "Times New Roman"
+  html:
+    toc: false
+    embed-resources: true
+    theme:
+      - cosmo
+      - infosci-one-pager.scss
+---
+
+```{=typst}
+// Header banner
+#rect(
+  width: 100%,
+  fill: rgb("#0C234B"),
+  inset: 12pt,
+  [
+    #grid(
+      columns: (auto, 1fr),
+      gutter: 12pt,
+      [#image("assets/infosci-logo.png", width: 1.5in)],
+      [
+        #align(right)[
+          #text(size: 18pt, fill: white, weight: "bold")[{{< meta title >}}]
+          #v(4pt)
+          #text(size: 11pt, fill: rgb("#81D3EB"))[{{< meta subtitle >}}]
+        ]
+      ]
+    )
+  ]
+)
+
+#v(0.15in)
+```
+
+::: {.metrics-row}
+```{r}
+#| echo: false
+#| output: asis
+
+metrics <- rmarkdown::metadata$metrics
+if (!is.null(metrics)) {
+  cat('<div class="metrics-container">\n')
+  for (m in metrics) {
+    cat(sprintf('<div class="metric"><span class="metric-value">%s</span><span class="metric-label">%s</span></div>\n',
+                m$value, m$label))
+  }
+  cat('</div>\n')
+}
+```
+:::
+
+## The Challenge
+
+Describe the problem or need that this project/program addresses. Keep it concise and impactful - one paragraph maximum.
+
+## Our Solution
+
+::: {.columns}
+::: {.column width="60%"}
+Explain how your project or program addresses the challenge. Focus on the unique approach and key differentiators.
+
+**Key Features:**
+
+- Feature or benefit one
+- Feature or benefit two
+- Feature or benefit three
+- Feature or benefit four
+:::
+
+::: {.column width="40%"}
+::: {.highlight-box}
+**Quick Facts**
+
+- Fact about the program
+- Another important fact
+- Third key fact
+- Timeline or milestone
+:::
+:::
+:::
+
+## Impact & Outcomes
+
+::: {.columns}
+::: {.column width="50%"}
+### Results
+
+- Outcome or achievement
+- Measurable impact
+- Recognition received
+:::
+
+::: {.column width="50%"}
+### Testimonial
+
+> "Quote from a participant, stakeholder, or partner that speaks to the value and impact of the program."
+>
+> — *Name, Title*
+:::
+:::
+
+## Get Involved
+
+::: {.columns}
+::: {.column width="60%"}
+**Ways to Participate:**
+
+- Option one (e.g., volunteer, enroll, partner)
+- Option two
+- Option three
+
+**Funding/Support:** Brief note about funding needs or how to support.
+:::
+
+::: {.column width="40%"}
+::: {.contact-box}
+**Contact**
+
+{{< meta contact.name >}}
+{{< meta contact.title >}}
+
+{{< meta contact.email >}}
+{{< meta contact.phone >}}
+
+[{{< meta contact.website >}}]({{< meta contact.website >}})
+:::
+:::
+:::
+
+```{=typst}
+// Footer
+#v(1fr)
+#line(length: 100%, stroke: 0.5pt + rgb("#E2E9EB"))
+#v(4pt)
+#text(size: 8pt, fill: rgb("#666666"))[
+  #grid(
+    columns: (1fr, 1fr),
+    [College of Information Science • University of Arizona],
+    [#align(right)[Updated: {{< meta date >}} • Version {{< meta version >}}]]
+  )
+]
+```

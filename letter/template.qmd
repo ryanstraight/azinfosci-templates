@@ -1,0 +1,62 @@
+---
+title: ""
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      top: 0.6in
+      bottom: 0.6in
+      left: 0.75in
+      right: 0.75in
+    fontsize: 10.5pt
+    mainfont: "Times New Roman"
+---
+
+```{=typst}
+// Header: logo left, contact info right
+#grid(
+  columns: (1fr, 1fr),
+  align: (left, right),
+  [#image("assets/infosci-logo.png", width: 85%)],
+  [#text(size: 8.5pt)[
+    Your Name, PhD \
+    Your Title \
+    College of Information Science \
+    University of Arizona \
+    youremail\@arizona.edu \
+    (520) 000-0000
+  ]]
+)
+
+#v(0.15in)
+
+// Date
+#datetime.today().display("[month repr:long] [day], [year]")
+
+#v(0.15in)
+```
+
+Dear [Recipient],
+
+[Opening paragraph introducing yourself and your relationship to the subject/purpose of the letter.]
+
+[Body paragraphs with supporting details, evidence, or main content.]
+
+[Closing paragraph with summary and any call to action.]
+
+```{=typst}
+#v(0.2in)
+
+Best wishes,
+
+#v(0.4in)
+// To add a signature image, uncomment the line below and add signature.png to assets/
+// #image("assets/signature.png", width: 1.3in)
+
+#text(size: 10pt)[
+Your Name, PhD \
+Your Title \
+College of Information Science \
+University of Arizona
+]
+```

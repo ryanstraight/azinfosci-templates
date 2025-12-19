@@ -1,0 +1,166 @@
+---
+title: "Research Lab Notebook"
+subtitle: "Project Name"
+author: "Researcher Name"
+affiliation: "College of Information Science, University of Arizona"
+date: today
+date-modified: last-modified
+
+project:
+  name: "Project Title"
+  pi: "Principal Investigator"
+  irb: "IRB Protocol #00000"  # if applicable
+  funding: "Funding Source"
+
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    toc-title: "Entries"
+    embed-resources: true
+    theme:
+      - cosmo
+      - infosci-notebook.scss
+    code-fold: true
+    code-tools: true
+    df-print: paged
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+
+execute:
+  echo: true
+  warning: true
+  message: true
+---
+
+# Project Overview
+
+**Project:** {{< meta project.name >}}
+
+**Principal Investigator:** {{< meta project.pi >}}
+
+**IRB Protocol:** {{< meta project.irb >}}
+
+**Funding:** {{< meta project.funding >}}
+
+## Research Questions
+
+1. Primary research question
+2. Secondary research question
+
+## Methods Summary
+
+Brief overview of the methods being used in this project.
+
+---
+
+# Entry Log
+
+## 2025-01-15 {#entry-2025-01-15}
+
+::: {.entry-header}
+**Researcher:** Your Name | **Duration:** 2 hours | **Location:** ENR2 Lab
+:::
+
+### Objectives
+
+- [ ] Objective for today's session
+- [ ] Another objective
+- [x] Completed objective from previous session
+
+### Methods & Procedures
+
+Describe what you did today. Be specific enough that someone could replicate your work.
+
+```{r}
+#| label: example-analysis
+#| eval: false
+
+# Example code from today's work
+library(tidyverse)
+
+data <- read_csv("data/raw/dataset.csv")
+data |>
+  filter(!is.na(variable)) |>
+  summarize(mean = mean(value))
+```
+
+### Observations & Results
+
+Document what you observed, including any unexpected findings.
+
+::: {.callout-note}
+## Key Finding
+Important observation or result from today's work.
+:::
+
+### Issues & Troubleshooting
+
+- **Issue:** Description of problem encountered
+- **Resolution:** How it was resolved (or status if unresolved)
+
+### Next Steps
+
+- [ ] Task for next session
+- [ ] Another task
+
+---
+
+## 2025-01-14 {#entry-2025-01-14}
+
+::: {.entry-header}
+**Researcher:** Your Name | **Duration:** 3 hours | **Location:** Remote
+:::
+### Objectives
+
+- [x] Set up project repository
+- [x] Initial data exploration
+
+### Methods & Procedures
+
+Today focused on project setup and initial exploration of the dataset.
+
+### Observations & Results
+
+- Dataset contains N=1,234 observations
+- Variables of interest: var1, var2, var3
+- Initial quality assessment: 5% missing data in var2
+
+### Next Steps
+
+- [ ] Develop cleaning protocol for missing data
+- [ ] Create preliminary visualizations
+
+---
+
+# Appendices
+
+## A. Data Dictionary
+
+| Variable | Type | Description |
+|----------|------|-------------|
+| id | integer | Unique identifier |
+| var1 | character | Description |
+| var2 | numeric | Description |
+
+## B. Equipment & Software
+
+- R version 4.4.0
+- RStudio 2024.04
+- Key packages: tidyverse, quarto
+
+## C. References
+
+- Reference 1
+- Reference 2
+
+---
+
+::: {.notebook-footer}
+*This notebook is maintained as part of the {{< meta project.name >}} project.*
+
+*Last modified: {{< meta date-modified >}}*
+:::

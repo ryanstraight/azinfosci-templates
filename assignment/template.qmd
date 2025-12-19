@@ -1,0 +1,88 @@
+---
+title: "Assignment Title"
+subtitle: "Course Number: Course Name"
+author: "Instructor Name"
+date: today
+due-date: "January 15, 2025"
+points: 100
+
+format:
+  html:
+    toc: false
+    embed-resources: true
+    theme:
+      - cosmo
+      - infosci-assignment.scss
+---
+
+::: {.assignment-header}
+| | |
+|:--|--:|
+| **Course:** {{< meta subtitle >}} | **Due:** {{< meta due-date >}} |
+| **Instructor:** {{< meta author >}} | **Points:** {{< meta points >}} |
+:::
+
+## Overview
+
+Provide a brief description of the assignment, its purpose, and how it connects to course learning objectives.
+
+## Learning Objectives
+
+By completing this assignment, you will be able to:
+
+1. First learning objective
+2. Second learning objective
+3. Third learning objective
+
+## Instructions
+
+### Part 1: [Section Name]
+
+Detailed instructions for the first part of the assignment.
+
+- Requirement one
+- Requirement two
+- Requirement three
+
+### Part 2: [Section Name]
+
+Detailed instructions for the second part of the assignment.
+
+1. Step one
+2. Step two
+3. Step three
+
+## Deliverables
+
+| Item | Format | Points |
+|------|--------|--------|
+| Deliverable 1 | PDF/Word | 40 |
+| Deliverable 2 | Code file | 30 |
+| Deliverable 3 | Reflection | 30 |
+
+## Grading Criteria
+
+Your work will be evaluated based on:
+
+- **Completeness (40%)**: All required elements are present
+- **Quality (40%)**: Work demonstrates understanding and effort
+- **Presentation (20%)**: Clear organization and professional formatting
+
+## Resources
+
+- [Resource 1](https://example.com)
+- [Resource 2](https://example.com)
+- Course materials on D2L
+
+## Submission Instructions
+
+Submit your completed work to **D2L** by **{{< meta due-date >}}** at 11:59 PM Arizona time.
+
+::: {.callout-important}
+## Late Policy
+Late submissions will be penalized 10% per day unless prior arrangements have been made.
+:::
+
+## Questions?
+
+Contact the instructor at [email@arizona.edu](mailto:email@arizona.edu) or visit office hours.

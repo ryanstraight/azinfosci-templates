@@ -1,0 +1,111 @@
+/*-- scss:defaults --*/
+
+// Import shared UA Brand Colors
+@import "../assets/scss/_ua-colors";
+
+$primary: $ua-blue;
+$secondary: $ua-red;
+
+$body-color: #333333;
+$headings-color: $ua-blue;
+
+/*-- scss:rules --*/
+
+// Clean header styling
+h1, h2, h3 {
+  color: $ua-blue;
+  border-bottom: none;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid $ua-red;
+}
+
+h3 {
+  font-size: 1.1rem;
+  color: $ua-azurite;
+}
+
+// Subtitle (course info)
+.subtitle {
+  color: $ua-red;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+// Due date callout
+.callout-important {
+  border-left-color: $ua-red;
+  background-color: rgba($ua-red, 0.05);
+}
+
+// Tables
+table {
+  width: 100%;
+  margin: 1rem 0;
+
+  th {
+    background-color: $ua-blue;
+    color: white;
+    padding: 0.5rem;
+  }
+
+  td {
+    padding: 0.5rem;
+    border-bottom: 1px solid $ua-cool-gray;
+  }
+
+  tr:hover {
+    background-color: $ua-cool-gray;
+  }
+}
+
+// Links
+a {
+  color: $ua-oasis;
+
+  &:hover {
+    color: $ua-red;
+  }
+}
+
+// Info box at top
+.quarto-title-meta {
+  background-color: $ua-cool-gray;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+// Assignment header with course info and due date
+.assignment-header {
+  background-color: $ua-cool-gray;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid $ua-blue;
+
+  table {
+    width: 100%;
+    margin: 0;
+    border: none;
+
+    th, td {
+      background: transparent;
+      border: none;
+      padding: 0.25rem 0;
+    }
+
+    tr:hover {
+      background: transparent;
+    }
+  }
+}

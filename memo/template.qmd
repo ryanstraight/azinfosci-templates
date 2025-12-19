@@ -1,0 +1,69 @@
+---
+title: ""
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      top: 0.75in
+      bottom: 0.75in
+      left: 1in
+      right: 1in
+    fontsize: 11pt
+    mainfont: "Times New Roman"
+---
+
+```{=typst}
+// InfoSci Memo Header
+#set text(font: "Georgia", size: 11pt)
+
+// UA Brand Colors
+#let ua-blue = rgb("#0C234B")
+#let ua-red = rgb("#AB0520")
+
+// Header with logo
+#grid(
+  columns: (1fr, 1fr),
+  align: (left, right),
+  [#image("assets/infosci-logo.png", width: 2.5in)],
+  [
+    #align(right)[
+      #text(size: 24pt, weight: "bold", fill: ua-blue)[MEMORANDUM]
+    ]
+  ]
+)
+
+#v(0.1in)
+#line(length: 100%, stroke: 2pt + ua-red)
+#v(0.25in)
+
+// Memo Fields
+#grid(
+  columns: (0.8in, 1fr),
+  row-gutter: 0.15in,
+  [#text(weight: "bold")[TO:]],
+  [[Recipient Name, Title]],
+  [#text(weight: "bold")[FROM:]],
+  [[Your Name, Title]],
+  [#text(weight: "bold")[DATE:]],
+  [#datetime.today().display("[month repr:long] [day], [year]")],
+  [#text(weight: "bold")[RE:]],
+  [[Subject of Memo]],
+)
+
+#v(0.1in)
+#line(length: 100%, stroke: 0.5pt + ua-blue)
+#v(0.3in)
+```
+
+[Opening paragraph stating the purpose of the memo clearly and concisely.]
+
+[Body paragraphs providing necessary details, background information, or analysis. Use clear headings if the memo covers multiple topics.]
+
+[Closing paragraph with any required actions, deadlines, or next steps.]
+
+```{=typst}
+#v(0.3in)
+
+// Optional: Add CC line if needed
+// #text(size: 10pt)[*cc:* Name, Name]
+```

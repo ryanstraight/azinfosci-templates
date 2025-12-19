@@ -1,0 +1,164 @@
+/*-- scss:defaults --*/
+
+// Import shared UA Brand Colors
+@import "../assets/scss/_ua-colors";
+
+$primary: $ua-blue;
+$body-color: #333333;
+
+/*-- scss:rules --*/
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.4;
+}
+
+// Title area
+h1.title {
+  color: white;
+  background-color: $ua-blue;
+  padding: 1rem;
+  margin: -1rem -1rem 1rem -1rem;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  color: $ua-sky;
+}
+
+// Section headers
+h2 {
+  color: $ua-blue;
+  font-size: 1.1rem;
+  border-bottom: 2px solid $ua-red;
+  padding-bottom: 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  color: $ua-azurite;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+}
+
+// Metrics display
+.metrics-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: $ua-cool-gray;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.metric {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $ua-red;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.8rem;
+  color: $ua-blue;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Highlight box
+.highlight-box {
+  background-color: rgba($ua-oasis, 0.1);
+  border-left: 4px solid $ua-oasis;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+
+  strong {
+    color: $ua-blue;
+  }
+
+  ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+  }
+}
+
+// Contact box
+.contact-box {
+  background-color: $ua-blue;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+
+  strong {
+    color: $ua-sky;
+  }
+
+  a {
+    color: $ua-sky;
+  }
+}
+
+// Blockquote (testimonial)
+blockquote {
+  border-left: 3px solid $ua-red;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #555;
+  margin: 0.5rem 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+// Lists
+ul, ol {
+  margin: 0.25rem 0;
+  padding-left: 1.25rem;
+
+  li {
+    margin-bottom: 0.2rem;
+  }
+}
+
+// Columns
+.columns {
+  gap: 1.5rem;
+}
+
+// Links
+a {
+  color: $ua-oasis;
+  text-decoration: none;
+
+  &:hover {
+    color: $ua-red;
+    text-decoration: underline;
+  }
+}
+
+// Print optimization
+@media print {
+  body {
+    font-size: 9pt;
+  }
+
+  .metrics-container {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .contact-box, .highlight-box {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

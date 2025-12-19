@@ -1,0 +1,162 @@
+---
+title: "Meeting Title"
+meeting-type: "Committee Meeting"  # e.g., "Faculty Meeting", "Project Standup", "Advisory Board"
+date: today
+time: "2:00 PM - 3:00 PM"
+location: "ENR2 Room 123 / Zoom"
+zoom-link: "https://arizona.zoom.us/j/123456789"
+
+chair: "Chair Name"
+note-taker: "Note Taker Name"
+
+attendees:
+  - name: "Person One"
+    role: "Chair"
+  - name: "Person Two"
+    role: "Member"
+  - name: "Person Three"
+    role: "Member"
+  - name: "Person Four"
+    role: "Guest"
+
+agenda-items:
+  - topic: "Call to Order & Approval of Minutes"
+    duration: "5 min"
+    presenter: "Chair"
+    notes: ""
+  - topic: "Old Business"
+    duration: "15 min"
+    presenter: "Various"
+    notes: "Follow up on action items from last meeting"
+  - topic: "New Business Item 1"
+    duration: "20 min"
+    presenter: "Person Two"
+    notes: "Description of the topic to be discussed"
+  - topic: "New Business Item 2"
+    duration: "15 min"
+    presenter: "Person Three"
+    notes: ""
+  - topic: "Open Discussion"
+    duration: "10 min"
+    presenter: "All"
+    notes: ""
+  - topic: "Action Items & Adjournment"
+    duration: "5 min"
+    presenter: "Chair"
+    notes: ""
+
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      top: 0.75in
+      bottom: 0.75in
+      left: 0.75in
+      right: 0.75in
+    fontsize: 10pt
+    mainfont: "Times New Roman"
+  html:
+    toc: false
+    embed-resources: true
+    theme:
+      - cosmo
+      - infosci-agenda.scss
+---
+
+```{=typst}
+// Meeting header
+#align(center)[
+  #text(size: 18pt, fill: rgb("#0C234B"), weight: "bold")[{{< meta title >}}]
+
+  #text(size: 12pt, fill: rgb("#AB0520"))[{{< meta meeting-type >}}]
+
+  #v(0.1in)
+
+  #text(size: 10pt)[
+    *Date:* {{< meta date >}} \
+    *Time:* {{< meta time >}} \
+    *Location:* {{< meta location >}}
+  ]
+]
+
+#line(length: 100%, stroke: 1pt + rgb("#0C234B"))
+#v(0.15in)
+```
+
+::: {.grid}
+::: {.g-col-6}
+**Chair:** {{< meta chair >}}
+
+**Note Taker:** {{< meta note-taker >}}
+:::
+::: {.g-col-6}
+**Zoom:** [Join Meeting]({{< meta zoom-link >}})
+:::
+:::
+
+## Attendees
+
+```{r}
+#| echo: false
+#| output: asis
+
+attendees <- rmarkdown::metadata$attendees
+if (!is.null(attendees)) {
+  cat("| Name | Role |\n|------|------|\n")
+  for (a in attendees) {
+    cat(sprintf("| %s | %s |\n", a$name, a$role))
+  }
+}
+```
+
+## Agenda
+
+```{r}
+#| echo: false
+#| output: asis
+
+items <- rmarkdown::metadata$`agenda-items`
+if (!is.null(items)) {
+  cat("| # | Topic | Duration | Presenter | Notes |\n")
+  cat("|---|-------|----------|-----------|-------|\n")
+  for (i in seq_along(items)) {
+    item <- items[[i]]
+    notes <- if (is.null(item$notes) || item$notes == "") "" else item$notes
+    cat(sprintf("| %d | %s | %s | %s | %s |\n",
+                i, item$topic, item$duration, item$presenter, notes))
+  }
+}
+```
+
+## Minutes
+
+*Notes from the meeting:*
+
+### Item 1: [Topic]
+
+- Discussion point
+- Discussion point
+- **Decision:** [What was decided]
+
+### Item 2: [Topic]
+
+- Discussion point
+- Discussion point
+
+## Action Items
+
+| Action | Assignee | Due Date | Status |
+|--------|----------|----------|--------|
+| Action item description | Person | Date | ⬜ Pending |
+| Action item description | Person | Date | ⬜ Pending |
+| Action item description | Person | Date | ⬜ Pending |
+
+## Next Meeting
+
+**Date:** [Next meeting date]
+**Time:** [Time]
+**Location:** [Location]
+
+---
+
+*Minutes prepared by {{< meta note-taker >}} on {{< meta date >}}*

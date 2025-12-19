@@ -1,0 +1,156 @@
+---
+title: "Report Title"
+subtitle: "Subtitle or Project Name"
+author: "Your Name, PhD"
+date: today
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      top: 1in
+      bottom: 1in
+      left: 1.25in
+      right: 1.25in
+    fontsize: 11pt
+    mainfont: "Times New Roman"
+    toc: false
+    number-sections: true
+---
+
+```{=typst}
+// UA Brand Colors
+#let ua-blue = rgb("#0C234B")
+#let ua-red = rgb("#AB0520")
+#let ua-cool-gray = rgb("#E2E9EB")
+
+// Title Page
+#set page(margin: (top: 2in, bottom: 1in, left: 1.25in, right: 1.25in))
+
+#align(center)[
+  #image("assets/infosci-logo.png", width: 60%)
+]
+
+#v(1in)
+
+#align(center)[
+  #text(size: 28pt, weight: "bold", fill: ua-blue)[
+    Report Title
+  ]
+
+  #v(0.2in)
+
+  #text(size: 16pt, fill: ua-blue)[
+    Subtitle or Project Name
+  ]
+]
+
+#v(1in)
+
+#align(center)[
+  #text(size: 12pt)[
+    *Prepared by:*
+
+    Your Name, PhD \
+    Your Title \
+    College of Information Science \
+    University of Arizona
+  ]
+]
+
+#v(0.5in)
+
+#align(center)[
+  #text(size: 12pt)[
+    #datetime.today().display("[month repr:long] [day], [year]")
+  ]
+]
+
+#pagebreak()
+
+// Reset margins for body
+#set page(margin: (top: 1in, bottom: 1in, left: 1.25in, right: 1.25in))
+
+// Table of Contents
+#text(size: 18pt, weight: "bold", fill: ua-blue)[Table of Contents]
+#v(0.1in)
+#line(length: 100%, stroke: 1pt + ua-red)
+#v(0.2in)
+#outline(title: none, depth: 2)
+
+#pagebreak()
+
+// Heading styles
+#show heading.where(level: 1): it => {
+  v(0.3in)
+  text(size: 16pt, weight: "bold", fill: ua-blue)[#it.body]
+  v(0.1in)
+  line(length: 100%, stroke: 1pt + ua-red)
+  v(0.2in)
+}
+
+#show heading.where(level: 2): it => {
+  v(0.2in)
+  text(size: 13pt, weight: "bold", fill: ua-blue)[#it.body]
+  v(0.1in)
+}
+
+#show heading.where(level: 3): it => {
+  v(0.15in)
+  text(size: 11pt, weight: "bold")[#it.body]
+  v(0.05in)
+}
+```
+
+# Executive Summary
+
+[Provide a brief overview of the report's purpose, key findings, and recommendations. This section should stand alone and give readers the essential information at a glance.]
+
+# Introduction
+
+## Background
+
+[Provide context and background information relevant to the report topic.]
+
+## Purpose
+
+[State the purpose and objectives of this report.]
+
+## Scope
+
+[Define the scope and limitations of the report.]
+
+# Methodology
+
+[Describe the methods, data sources, or approaches used in preparing this report.]
+
+# Findings
+
+## Finding One
+
+[Present your first major finding with supporting evidence.]
+
+## Finding Two
+
+[Present your second major finding with supporting evidence.]
+
+# Analysis
+
+[Provide analysis and interpretation of the findings.]
+
+# Recommendations
+
+1. **Recommendation One**: [Description and rationale]
+
+2. **Recommendation Two**: [Description and rationale]
+
+3. **Recommendation Three**: [Description and rationale]
+
+# Conclusion
+
+[Summarize the key points and reinforce the importance of the recommendations.]
+
+# Appendices {.unnumbered}
+
+## Appendix A: Supporting Data {.unnumbered}
+
+[Include supplementary materials, data tables, or detailed documentation.]
