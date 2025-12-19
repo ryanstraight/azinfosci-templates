@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>azinfosci-templates Examples</title>
+  <style>
+    :root {
+      --ua-blue: #0C234B;
+      --ua-red: #AB0520;
+      --ua-oasis: #378DBD;
+      --ua-sky: #81D3EB;
+      --ua-cool-gray: #E2E9EB;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: var(--ua-blue);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--ua-red);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      margin-top: 1rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section-title {
+      color: var(--ua-blue);
+      border-bottom: 3px solid var(--ua-red);
+      padding-bottom: 0.5rem;
+      margin: 2rem 0 1rem 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .card-header {
+      background: var(--ua-blue);
+      color: white;
+      padding: 1rem;
+    }
+
+    .card-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .card-body p {
+      margin: 0 0 1rem 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .format-badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .format-pdf {
+      background: #fee;
+      color: var(--ua-red);
+    }
+
+    .format-html {
+      background: #eef;
+      color: var(--ua-blue);
+    }
+
+    .format-revealjs {
+      background: #efe;
+      color: #070;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--ua-oasis);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--ua-blue);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: var(--ua-oasis);
+    }
+
+    .note {
+      background: #fff8e1;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>azinfosci-templates</h1>
+    <p>Quarto templates with University of Arizona College of Information Science branding</p>
+    <span class="badge">Work in Progress</span>
+  </header>
+
+  <main>
+    <div class="note">
+      <strong>Note:</strong> These examples use placeholder logos. When you install a template,
+      you'll need to add official UA logos from
+      <a href="https://brand.arizona.edu/brand-assets">UA Brand Resources</a> (requires NetID).
+    </div>
+
+    <h2 class="section-title">PDF Templates (Typst)</h2>
+    <p>These templates render to PDF via Typst. Click to view the PDF directly.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-header">
+          <h3>Letter</h3>
+        </div>
+        <div class="card-body">
+          <p>Formal correspondence with UA letterhead styling.</p>
+          <span class="format-badge format-pdf">PDF</span>
+          <br><br>
+          <a href="letter.pdf" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Memo</h3>
+        </div>
+        <div class="card-body">
+          <p>Internal memoranda with To/From/Date/Subject format.</p>
+          <span class="format-badge format-pdf">PDF</span>
+          <br><br>
+          <a href="memo.pdf" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Report</h3>
+        </div>
+        <div class="card-body">
+          <p>Formal reports with title page and numbered sections.</p>
+          <span class="format-badge format-pdf">PDF</span>
+          <br><br>
+          <a href="report.pdf" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Working Paper</h3>
+        </div>
+        <div class="card-body">
+          <p>Academic preprints with abstract, keywords, and bibliography.</p>
+          <span class="format-badge format-pdf">PDF</span>
+          <br><br>
+          <a href="working-paper.pdf" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Agenda</h3>
+        </div>
+        <div class="card-body">
+          <p>Meeting agendas with YAML-driven structure.</p>
+          <span class="format-badge format-pdf">PDF</span>
+          <br><br>
+          <a href="agenda.pdf" class="btn">View Example</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">HTML Templates</h2>
+    <p>These templates render to self-contained HTML files.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-header">
+          <h3>Document</h3>
+        </div>
+        <div class="card-body">
+          <p>Versatile template for training materials, protocols, and documentation.</p>
+          <span class="format-badge format-html">HTML</span>
+          <br><br>
+          <a href="document.html" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Assignment</h3>
+        </div>
+        <div class="card-body">
+          <p>Course assignments and handouts with due dates and rubrics.</p>
+          <span class="format-badge format-html">HTML</span>
+          <br><br>
+          <a href="assignment.html" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Lab Notebook</h3>
+        </div>
+        <div class="card-body">
+          <p>Research documentation with date-based entries.</p>
+          <span class="format-badge format-html">HTML</span>
+          <br><br>
+          <a href="lab-notebook.html" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Poster</h3>
+        </div>
+        <div class="card-body">
+          <p>36" x 24" conference poster with three-column layout.</p>
+          <span class="format-badge format-html">HTML</span>
+          <br><br>
+          <a href="poster.html" class="btn">View Example</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>One-Pager</h3>
+        </div>
+        <div class="card-body">
+          <p>Executive summaries and fact sheets with metrics display.</p>
+          <span class="format-badge format-html">HTML</span>
+          <br><br>
+          <a href="one-pager.html" class="btn">View Example</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Presentation</h2>
+    <p>Interactive reveal.js slides with UA branding.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-header">
+          <h3>Presentation</h3>
+        </div>
+        <div class="card-body">
+          <p>1920x1080 widescreen slides with custom theme and speaker notes.</p>
+          <span class="format-badge format-revealjs">Reveal.js</span>
+          <br><br>
+          <a href="presentation.html" class="btn">View Example</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://github.com/ryanstraight/azinfosci-templates">GitHub Repository</a> |
+      <a href="https://infosci.arizona.edu">College of Information Science</a> |
+      University of Arizona
+    </p>
+  </footer>
+</body>
+</html>

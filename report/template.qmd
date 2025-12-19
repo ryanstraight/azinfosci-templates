@@ -1,8 +1,8 @@
 ---
-title: "Report Title"
-subtitle: "Subtitle or Project Name"
-author: "Your Name, PhD"
-date: today
+title: ""
+report-title: "Report Title"
+report-subtitle: "Subtitle or Project Name"
+report-author: "Your Name, PhD"
 format:
   typst:
     papersize: us-letter
@@ -34,13 +34,13 @@ format:
 
 #align(center)[
   #text(size: 28pt, weight: "bold", fill: ua-blue)[
-    Report Title
+    {{< meta report-title >}}
   ]
 
   #v(0.2in)
 
   #text(size: 16pt, fill: ua-blue)[
-    Subtitle or Project Name
+    {{< meta report-subtitle >}}
   ]
 ]
 
@@ -50,7 +50,7 @@ format:
   #text(size: 12pt)[
     *Prepared by:*
 
-    Your Name, PhD \
+    {{< meta report-author >}} \
     Your Title \
     College of Information Science \
     University of Arizona

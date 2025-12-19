@@ -1,6 +1,8 @@
-# Rendered outputs
+# Rendered outputs (except examples/)
 *.html
 *.pdf
+!examples/**/*.html
+!examples/**/*.pdf
 !assets/**/*.pdf
 /_site/
 /_book/

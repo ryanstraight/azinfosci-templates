@@ -33,17 +33,39 @@ format:
   html:
     toc: false
     embed-resources: true
+    format-links: false
     theme:
       - cosmo
       - infosci-one-pager.scss
 ---
 
 ```{=typst}
+// UA Brand Colors
+#let ua-blue = rgb("#0C234B")
+#let ua-red = rgb("#AB0520")
+#let ua-oasis = rgb("#378DBD")
+#let ua-sky = rgb("#81D3EB")
+#let ua-cool-gray = rgb("#E2E9EB")
+
+// Heading styles for Typst
+#show heading.where(level: 2): it => {
+  v(0.12in)
+  text(size: 12pt, weight: "bold", fill: ua-blue)[#it.body]
+  v(0.05in)
+}
+
+#show heading.where(level: 3): it => {
+  v(0.08in)
+  text(size: 10pt, weight: "bold", fill: ua-blue)[#it.body]
+  v(0.03in)
+}
+
 // Header banner
 #rect(
   width: 100%,
-  fill: rgb("#0C234B"),
+  fill: ua-blue,
   inset: 12pt,
+  radius: 4pt,
   [
     #grid(
       columns: (auto, 1fr),
@@ -53,14 +75,41 @@ format:
         #align(right)[
           #text(size: 18pt, fill: white, weight: "bold")[{{< meta title >}}]
           #v(4pt)
-          #text(size: 11pt, fill: rgb("#81D3EB"))[{{< meta subtitle >}}]
+          #text(size: 11pt, fill: ua-sky)[{{< meta subtitle >}}]
         ]
       ]
     )
   ]
 )
 
-#v(0.15in)
+#v(0.12in)
+
+// Metrics row (Typst version)
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 8pt,
+  ..for m in (
+    ("500+", "Students Served"),
+    ("94%", "Success Rate"),
+    ("2020", "Year Established"),
+  ) {
+    (
+      rect(
+        width: 100%,
+        fill: ua-cool-gray,
+        inset: 8pt,
+        radius: 4pt,
+        align(center)[
+          #text(size: 20pt, weight: "bold", fill: ua-red)[#m.at(0)]
+          #v(2pt)
+          #text(size: 9pt, fill: ua-blue)[#m.at(1)]
+        ]
+      ),
+    )
+  }
+)
+
+#v(0.1in)
 ```
 
 ::: {.metrics-row}

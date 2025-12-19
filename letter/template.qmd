@@ -13,12 +13,16 @@ format:
 ---
 
 ```{=typst}
+// UA Brand Colors
+#let ua-blue = rgb("#0C234B")
+#let ua-red = rgb("#AB0520")
+
 // Header: logo left, contact info right
 #grid(
   columns: (1fr, 1fr),
   align: (left, right),
   [#image("assets/infosci-logo.png", width: 85%)],
-  [#text(size: 8.5pt)[
+  [#text(size: 8.5pt, fill: ua-blue)[
     Your Name, PhD \
     Your Title \
     College of Information Science \
@@ -28,10 +32,12 @@ format:
   ]]
 )
 
-#v(0.15in)
+#v(0.08in)
+#line(length: 100%, stroke: 1.5pt + ua-red)
+#v(0.2in)
 
 // Date
-#datetime.today().display("[month repr:long] [day], [year]")
+#text(size: 10pt)[#datetime.today().display("[month repr:long] [day], [year]")]
 
 #v(0.15in)
 ```

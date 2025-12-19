@@ -63,6 +63,7 @@ format:
     background-transition: fade
     width: 1920
     height: 1080
+    embed-resources: true
 ---
 
 ```{r}

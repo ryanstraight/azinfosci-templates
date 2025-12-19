@@ -1,7 +1,8 @@
 ---
-title: "Meeting Title"
+title: ""
+meeting-title: "Meeting Title"
 meeting-type: "Committee Meeting"  # e.g., "Faculty Meeting", "Project Standup", "Advisory Board"
-date: today
+meeting-date: today
 time: "2:00 PM - 3:00 PM"
 location: "ENR2 Room 123 / Zoom"
 zoom-link: "https://arizona.zoom.us/j/123456789"
@@ -64,25 +65,77 @@ format:
 ---
 
 ```{=typst}
+// UA Brand Colors
+#let ua-blue = rgb("#0C234B")
+#let ua-red = rgb("#AB0520")
+#let ua-oasis = rgb("#378DBD")
+#let ua-cool-gray = rgb("#E2E9EB")
+
+// Custom heading style
+#show heading.where(level: 1): it => {
+  block(
+    width: 100%,
+    fill: ua-blue,
+    inset: (x: 10pt, y: 8pt),
+    radius: 2pt,
+    text(fill: white, weight: "bold", size: 12pt)[#it.body]
+  )
+}
+
+#show heading.where(level: 2): it => {
+  text(fill: ua-blue, weight: "bold", size: 11pt)[#it.body]
+  v(4pt)
+}
+
+// Table styling - full width with proportional columns
+#show table: it => {
+  set text(size: 9.5pt)
+  block(width: 100%, it)
+}
+
+#set table(
+  stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ua-blue) } else { (bottom: 0.5pt + ua-cool-gray) },
+  fill: (x, y) => if y == 0 { ua-cool-gray } else { none },
+  inset: (x: 6pt, y: 8pt),
+)
+
+#set table.header(repeat: true)
+
 // Meeting header
 #align(center)[
-  #text(size: 18pt, fill: rgb("#0C234B"), weight: "bold")[{{< meta title >}}]
+  #text(size: 20pt, fill: ua-blue, weight: "bold")[{{< meta meeting-title >}}]
 
-  #text(size: 12pt, fill: rgb("#AB0520"))[{{< meta meeting-type >}}]
+  #v(4pt)
+  #text(size: 12pt, fill: ua-red, weight: "semibold")[{{< meta meeting-type >}}]
 
-  #v(0.1in)
+  #v(0.15in)
 
   #text(size: 10pt)[
-    *Date:* {{< meta date >}} \
-    *Time:* {{< meta time >}} \
+    *Date:* {{< meta meeting-date >}} #h(0.3in)
+    *Time:* {{< meta time >}} #h(0.3in)
     *Location:* {{< meta location >}}
   ]
 ]
 
-#line(length: 100%, stroke: 1pt + rgb("#0C234B"))
+#line(length: 100%, stroke: 2pt + ua-blue)
+#v(0.15in)
+
+// Meeting details grid
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 0.3in,
+  [
+    #text(fill: ua-blue, weight: "bold")[Chair:] {{< meta chair >}} \
+    #text(fill: ua-blue, weight: "bold")[Note Taker:] {{< meta note-taker >}}
+  ],
+  [
+    #text(fill: ua-blue, weight: "bold")[Zoom:] #link("{{< meta zoom-link >}}")[#text(fill: ua-oasis)[Join Meeting]]
+  ]
+)
 #v(0.15in)
 ```
 
+::: {.content-visible when-format="html"}
 ::: {.grid}
 ::: {.g-col-6}
 **Chair:** {{< meta chair >}}
@@ -91,6 +144,7 @@ format:
 :::
 ::: {.g-col-6}
 **Zoom:** [Join Meeting]({{< meta zoom-link >}})
+:::
 :::
 :::
 
@@ -106,6 +160,7 @@ if (!is.null(attendees)) {
   for (a in attendees) {
     cat(sprintf("| %s | %s |\n", a$name, a$role))
   }
+  cat("\n: {tbl-colwidths=\"[65,35]\"}\n")
 }
 ```
 
@@ -125,6 +180,7 @@ if (!is.null(items)) {
     cat(sprintf("| %d | %s | %s | %s | %s |\n",
                 i, item$topic, item$duration, item$presenter, notes))
   }
+  cat("\n: {tbl-colwidths=\"[5,40,12,15,28]\"}\n")
 }
 ```
 
@@ -151,6 +207,8 @@ if (!is.null(items)) {
 | Action item description | Person | Date | ⬜ Pending |
 | Action item description | Person | Date | ⬜ Pending |
 
+: {tbl-colwidths="[45,20,20,15]"}
+
 ## Next Meeting
 
 **Date:** [Next meeting date]
@@ -159,4 +217,4 @@ if (!is.null(items)) {
 
 ---
 
-*Minutes prepared by {{< meta note-taker >}} on {{< meta date >}}*
+*Minutes prepared by {{< meta note-taker >}} on {{< meta meeting-date >}}*
