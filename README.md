@@ -1,267 +1,167 @@
 # azinfosci-templates
 
-> **Work in Progress**: This template collection is under active development. Some templates may have incomplete styling or missing features. Contributions and feedback welcome!
+[![Quarto](https://img.shields.io/badge/Quarto-%E2%89%A51.4-blue?logo=quarto)](https://quarto.org/)
+[![Templates](https://img.shields.io/badge/Templates-11-AB0520)](https://ryanstraight.github.io/azinfosci-templates/)
+[![GitHub Pages](https://img.shields.io/github/deployments/ryanstraight/azinfosci-templates/github-pages?label=Examples&logo=github)](https://ryanstraight.github.io/azinfosci-templates/)
+[![License](https://img.shields.io/badge/License-UA_Brand_Guidelines-0C234B)](https://brand.arizona.edu/)
 
-Quarto document templates with University of Arizona College of Information Science branding.
+**Professional Quarto templates with University of Arizona College of Information Science branding.**
 
-## Examples
+Create polished academic documents, presentations, and reports with consistent UA styling — no design work required.
 
-See rendered examples of each template:
+> [!NOTE]
+> This template collection is under active development. Some templates may have incomplete styling or missing features. Contributions and feedback welcome!
 
-**PDF Templates** (viewable directly in GitHub):
+## Quick Start
 
-- [Letter](examples/letter.pdf) - Formal correspondence
-- [Memo](examples/memo.pdf) - Internal memoranda
-- [Report](examples/report.pdf) - Formal reports with title page
-- [Working Paper](examples/working-paper.pdf) - Academic preprints
-- [Agenda](examples/agenda.pdf) - Meeting agendas
+```bash
+quarto use template ryanstraight/azinfosci-templates/presentation
+```
 
-**HTML Templates** (viewable on GitHub Pages):
+Then add your [UA logos](#adding-ua-logos-required) to the `assets/` folder and render.
 
-- [Document](https://ryanstraight.github.io/azinfosci-templates/document.html) - Training materials and documentation
-- [Assignment](https://ryanstraight.github.io/azinfosci-templates/assignment.html) - Course assignments
-- [Lab Notebook](https://ryanstraight.github.io/azinfosci-templates/lab-notebook.html) - Research documentation
-- [One-Pager](https://ryanstraight.github.io/azinfosci-templates/one-pager.html) - Executive summaries
-- [Poster](https://ryanstraight.github.io/azinfosci-templates/poster.html) - 36"x24" conference poster
-- [Presentation](https://ryanstraight.github.io/azinfosci-templates/presentation.html) - Reveal.js slides
+## Template Gallery
 
-Browse all examples: [ryanstraight.github.io/azinfosci-templates](https://ryanstraight.github.io/azinfosci-templates/)
+| Template | Format | Description | Example |
+|:---------|:------:|:------------|:-------:|
+| **presentation** | HTML | Reveal.js slides with 1920×1080 widescreen, QR codes, section dividers | [View](https://ryanstraight.github.io/azinfosci-templates/presentation.html) |
+| **poster** | HTML | 36"×24" conference poster with three-column layout | [View](https://ryanstraight.github.io/azinfosci-templates/poster.html) |
+| **document** | HTML | Training materials and documentation with TOC | [View](https://ryanstraight.github.io/azinfosci-templates/document.html) |
+| **assignment** | HTML | Course assignments with due dates and rubrics | [View](https://ryanstraight.github.io/azinfosci-templates/assignment.html) |
+| **lab-notebook** | HTML | Research documentation with date-based entries | [View](https://ryanstraight.github.io/azinfosci-templates/lab-notebook.html) |
+| **one-pager** | HTML | Executive summaries with metrics display | [View](https://ryanstraight.github.io/azinfosci-templates/one-pager.html) |
+| **letter** | PDF | Formal correspondence with UA letterhead | [View](examples/letter.pdf) |
+| **memo** | PDF | Internal memoranda (To/From/Date/Subject) | [View](examples/memo.pdf) |
+| **report** | PDF | Formal reports with title page and TOC | [View](examples/report.pdf) |
+| **working-paper** | PDF | Academic preprints with abstract and bibliography | [View](examples/working-paper.pdf) |
+| **agenda** | PDF | Meeting agendas with YAML-driven structure | [View](examples/agenda.pdf) |
+
+Browse all examples: **[ryanstraight.github.io/azinfosci-templates](https://ryanstraight.github.io/azinfosci-templates/)**
+
+## Features
+
+- **Official UA brand colors** — Arizona Blue, Arizona Red, and accent palette
+- **Multiple formats** — PDF (via Typst), HTML, and Reveal.js presentations
+- **One-command setup** — `quarto use template` scaffolds everything you need
+- **Fully customizable** — SCSS themes and YAML configuration
+- **Citation support** — APA 7th edition with BibTeX integration
+- **Data visualization ready** — Mermaid diagrams, code blocks, and R/Python integration
 
 ## Prerequisites
 
 - [Quarto](https://quarto.org/) >= 1.4.0
-- For presentation QR codes: `jmbuhr/quarto-qrcode` extension (install instructions below)
-- For persistent QR codes in presentations: R with `qrcode` package (optional)
+- For presentation QR codes: `jmbuhr/quarto-qrcode` extension
+- For persistent QR codes: R with `qrcode` package (optional)
 
 ## Installation
 
 Use `quarto use template` to scaffold any template:
 
 ```bash
-# Presentation (revealjs slides)
+# Presentations
 quarto use template ryanstraight/azinfosci-templates/presentation
 
-# Conference poster (HTML, 36x24")
+# Posters
 quarto use template ryanstraight/azinfosci-templates/poster
 
-# General document (HTML)
+# Documents
 quarto use template ryanstraight/azinfosci-templates/document
-
-# Formal letter
-quarto use template ryanstraight/azinfosci-templates/letter
-
-# Internal memo
-quarto use template ryanstraight/azinfosci-templates/memo
-
-# Course assignment/handout
 quarto use template ryanstraight/azinfosci-templates/assignment
-
-# Meeting agenda
-quarto use template ryanstraight/azinfosci-templates/agenda
-
-# One-page fact sheet
+quarto use template ryanstraight/azinfosci-templates/lab-notebook
 quarto use template ryanstraight/azinfosci-templates/one-pager
 
-# Research lab notebook
-quarto use template ryanstraight/azinfosci-templates/lab-notebook
+# Correspondence
+quarto use template ryanstraight/azinfosci-templates/letter
+quarto use template ryanstraight/azinfosci-templates/memo
 
-# Formal report
+# Reports & Papers
 quarto use template ryanstraight/azinfosci-templates/report
-
-# Academic working paper
 quarto use template ryanstraight/azinfosci-templates/working-paper
+quarto use template ryanstraight/azinfosci-templates/agenda
 ```
 
 ## Adding UA Logos (Required)
 
-Due to trademark restrictions, official UA logos **cannot be distributed** with these templates. You must add them manually after scaffolding a template.
+Due to trademark restrictions, official UA logos **cannot be distributed** with these templates. You must add them manually after scaffolding.
 
 ### Step 1: Download Logos
 
-1. Go to [UA Brand Resources](https://brand.arizona.edu/brand-assets) (requires UA NetID login)
+1. Go to [UA Brand Resources](https://brand.arizona.edu/brand-assets) (requires UA NetID)
 2. Navigate to **Logos** → **College of Information Science** (or your unit)
 3. Download the logo files you need
 
-### Step 2: Prepare Logo Files
+### Step 2: Add Logo Files
 
 Templates expect specific filenames in the `assets/` folder:
 
 | Template | Required File | Description |
 |----------|---------------|-------------|
-| Most templates | `assets/infosci-logo.png` | Standard logo (dark text on light background) |
+| Most templates | `assets/infosci-logo.png` | Standard logo (dark on light background) |
 | Poster, Presentation | `assets/infosci-logo-reverse.png` | White/light logo for dark backgrounds |
 | Poster | `assets/ua-logo-white.png` | UA block logo (white) for header |
-
-### Step 3: Place Files
-
-After running `quarto use template`, copy your logo files into the `assets/` folder:
 
 ```
 your-project/
 ├── template.qmd
 ├── assets/
-│   ├── infosci-logo.png      ← Add this
-│   ├── infosci-logo-reverse.png  ← For poster/presentation
-│   └── ua-logo-white.png     ← For poster
+│   ├── infosci-logo.png           ← Required
+│   ├── infosci-logo-reverse.png   ← For poster/presentation
+│   └── ua-logo-white.png          ← For poster
 └── ...
 ```
 
 ### Logo Specifications
 
-- **Format**: PNG with transparent background preferred
-- **Resolution**: At least 300 DPI for print templates (poster, letter, memo)
-- **Variants needed**:
-  - Standard (dark logo for light backgrounds)
-  - Reverse (light/white logo for dark backgrounds) - poster and presentation
+- **Format**: PNG with transparent background
+- **Resolution**: 300+ DPI for print templates (poster, letter, memo)
 
-### If You Don't Have Access to UA Logos
+### No UA Access?
 
-- Templates will render with placeholder text where logos would appear
+- Templates render with placeholder text where logos would appear
 - Contact your department's communications office for logo files
-- For non-UA use, replace logo references in the SCSS/template files with your own branding
-
-## Templates
-
-### presentation
-
-Revealjs slides with UA branding. Features:
-
-- 1920x1080 widescreen format
-- Custom SCSS theme with UA colors
-- "Follow Along" QR code slide
-- Section divider slides (blue/red backgrounds)
-- Quote and emphasis box styles
-- Speaker notes support
-- APA citation support
-
-**Setup:**
-
-```bash
-quarto use template ryanstraight/azinfosci-templates/presentation
-quarto add jmbuhr/quarto-qrcode  # Required for QR code slides
-```
-
-Render: `quarto render presentation.qmd`
-
-### poster
-
-Conference poster using HTML/CSS with print optimization. Features:
-
-- 36" x 24" landscape format
-- Three-column CSS Grid layout
-- Section boxes with UA blue headers
-- Stat highlight boxes
-- Callout boxes
-- QR code placeholder
-- Print-optimized (use browser Print → Save as PDF)
-
-Render: `quarto render template.qmd` then print to PDF from browser.
-
-### document
-
-Versatile template for training materials, protocols, and documentation.
-
-- Clean typography with UA colors
-- Left-side table of contents
-- Callout boxes, code blocks, diagrams
-
-### letter
-
-Formal correspondence with UA letterhead styling.
-
-- Professional header layout
-- Signature block
-- Date formatting
-
-### memo
-
-Internal memoranda with To/From/Date/Subject format.
-
-- UA branded header
-- Standard memo structure
-
-### assignment
-
-Course assignments and handouts.
-
-- Due date display
-- Grading rubric support
-- Clean formatting for student distribution
-
-### agenda
-
-Meeting agendas with YAML-driven structure.
-
-- Attendee list from YAML
-- Agenda items with time allocations
-- Action item tracking
-
-### one-pager
-
-Executive summaries and fact sheets.
-
-- Metrics display boxes
-- Key points formatting
-- Contact information block
-
-### lab-notebook
-
-Research documentation with date-based entries.
-
-- Entry headers by date
-- Observation and analysis sections
-- Progressive documentation style
-
-### report
-
-Formal reports with title page.
-
-- Table of contents
-- Numbered sections
-- Executive summary support
-
-### working-paper
-
-Academic preprints and working papers.
-
-- Abstract and keywords
-- Author affiliations with ORCID
-- Bibliography support (APA)
-- Numbered sections
-
-## Customization
-
-Each template includes:
-
-- `template.qmd` or `template.typ` - main document
-- `*.scss` - theme customization (where applicable)
-- `assets/` - logos, CSL files, images
-- `references.bib` - bibliography (where applicable)
-
-Edit the YAML front matter to customize metadata, then modify content as needed.
+- For non-UA use, replace logo references in SCSS/template files with your branding
 
 ## UA Brand Colors
 
 Templates use official UA brand colors:
 
-- **Arizona Blue**: `#0C234B`
-- **Arizona Red**: `#AB0520`
-- **Oasis**: `#378DBD`
-- **Sky**: `#81D3EB`
-- **Cool Gray**: `#E2E9EB`
+| Color | Hex | Usage |
+|-------|-----|-------|
+| **Arizona Blue** | `#0C234B` | Primary headers, accents |
+| **Arizona Red** | `#AB0520` | Highlights, dividers |
+| **Oasis** | `#378DBD` | Links, secondary accents |
+| **Sky** | `#81D3EB` | Backgrounds, callouts |
+| **Cool Gray** | `#E2E9EB` | Borders, subtle backgrounds |
 
 See the full palette at [UA Brand Colors](https://brand.arizona.edu/applying-the-brand/colors).
 
+## Customization
+
+Each template includes:
+
+| File | Purpose |
+|------|---------|
+| `template.qmd` | Main document with YAML front matter |
+| `*.scss` | Theme customization (where applicable) |
+| `assets/` | Logos, CSL files, images |
+| `references.bib` | Bibliography (where applicable) |
+
+Edit the YAML front matter to customize metadata, then modify content as needed.
+
 ## Troubleshooting
 
-### Logo not appearing
+<details>
+<summary><strong>Logo not appearing</strong></summary>
 
 1. Ensure you downloaded logos from [UA Brand Resources](https://brand.arizona.edu/brand-assets)
 2. Verify filenames match exactly (case-sensitive): `infosci-logo.png`
 3. Check the file is in your template's `assets/` folder
 4. For poster: ensure you have both `infosci-logo-reverse.png` and `ua-logo-white.png`
 
-### Presentation QR codes not rendering
+</details>
+
+<details>
+<summary><strong>Presentation QR codes not rendering</strong></summary>
 
 Install the QR code extension in your project directory:
 
@@ -269,25 +169,36 @@ Install the QR code extension in your project directory:
 quarto add jmbuhr/quarto-qrcode
 ```
 
-### Fonts look different than expected
+</details>
 
-The templates use Adobe Fonts (Proxima Nova) which require internet access. If fonts appear as Arial/system fonts:
+<details>
+<summary><strong>Fonts look different than expected</strong></summary>
+
+Templates use Adobe Fonts (Proxima Nova) which require internet access. If fonts appear as Arial/system fonts:
 
 - Check internet connectivity
 - Some institutional networks block Adobe CDNs
-- Templates will fall back to system fonts automatically
+- Templates fall back to system fonts automatically
 
-### Poster colors not printing
+</details>
 
-When printing the poster to PDF, enable "Background graphics" or "Print backgrounds" in your browser's print dialog to preserve the colored headers and boxes.
+<details>
+<summary><strong>Poster colors not printing</strong></summary>
 
-### "Extension not found" errors
+When printing to PDF, enable "Background graphics" or "Print backgrounds" in your browser's print dialog.
 
-Run the template command from the correct directory and ensure the extension installed:
+</details>
+
+<details>
+<summary><strong>"Extension not found" errors</strong></summary>
+
+Run the template command from the correct directory and verify installation:
 
 ```bash
 quarto list extensions
 ```
+
+</details>
 
 ## License
 
@@ -295,4 +206,4 @@ Templates are provided for use by University of Arizona faculty, staff, and stud
 
 ## Related
 
-- [azinfosci-thesis](https://github.com/ryanstraight/azinfosci-thesis) - Quarto extension for UA-branded thesis/dissertation formatting
+- [azinfosci-thesis](https://github.com/ryanstraight/azinfosci-thesis) — Quarto extension for UA-branded master's thesis formatting
