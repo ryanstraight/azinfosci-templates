@@ -89,8 +89,7 @@ Templates expect specific filenames in the `assets/` folder:
 | Template | Required File | Description |
 |----------|---------------|-------------|
 | Most templates | `assets/infosci-logo.png` | Standard logo (dark text on light background) |
-| Presentation | `assets/infosci-logo.png` | Logo for slides |
-| Poster | `assets/infosci-logo-reverse.png` | White/light logo for dark header |
+| Poster, Presentation | `assets/infosci-logo-reverse.png` | White/light logo for dark backgrounds |
 | Poster | `assets/ua-logo-white.png` | UA block logo (white) for header |
 
 ### Step 3: Place Files
@@ -102,7 +101,7 @@ your-project/
 ├── template.qmd
 ├── assets/
 │   ├── infosci-logo.png      ← Add this
-│   ├── infosci-logo-reverse.png  ← For poster
+│   ├── infosci-logo-reverse.png  ← For poster/presentation
 │   └── ua-logo-white.png     ← For poster
 └── ...
 ```
@@ -113,7 +112,7 @@ your-project/
 - **Resolution**: At least 300 DPI for print templates (poster, letter, memo)
 - **Variants needed**:
   - Standard (dark logo for light backgrounds)
-  - Reverse (light/white logo for dark backgrounds) - poster only
+  - Reverse (light/white logo for dark backgrounds) - poster and presentation
 
 ### If You Don't Have Access to UA Logos
 
@@ -296,4 +295,4 @@ Templates are provided for use by University of Arizona faculty, staff, and stud
 
 ## Related
 
-- [azinfosci](https://github.com/ryanstraight/azinfosci) - R package with ggplot2 themes and UA color utilities
+- [azinfosci-thesis](https://github.com/ryanstraight/azinfosci-thesis) - Quarto extension for UA-branded thesis/dissertation formatting
