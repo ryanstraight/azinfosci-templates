@@ -1,7 +1,7 @@
 # azinfosci-templates
 
 [![Quarto](https://img.shields.io/badge/Quarto-%E2%89%A51.4-blue?logo=quarto)](https://quarto.org/)
-[![Templates](https://img.shields.io/badge/Templates-11-AB0520)](https://ryanstraight.github.io/azinfosci-templates/)
+[![Templates](https://img.shields.io/badge/Templates-12-AB0520)](https://ryanstraight.github.io/azinfosci-templates/)
 [![GitHub Pages](https://img.shields.io/github/deployments/ryanstraight/azinfosci-templates/github-pages?label=Examples&logo=github)](https://ryanstraight.github.io/azinfosci-templates/)
 [![License](https://img.shields.io/badge/License-UA_Brand_Guidelines-0C234B)](https://brand.arizona.edu/)
 
@@ -26,6 +26,7 @@ Then add your [UA logos](#adding-ua-logos-required) to the `assets/` folder and 
 |:---------|:------:|:------------|:-------:|
 | **presentation** | HTML | Reveal.js slides with 1920×1080 widescreen, QR codes, section dividers | [View](https://ryanstraight.github.io/azinfosci-templates/presentation.html) |
 | **poster** | HTML | 36"×24" conference poster with three-column layout | [View](https://ryanstraight.github.io/azinfosci-templates/poster.html) |
+| **program-poster** | HTML | 36"×24" general-purpose poster for programs, labs, and initiatives | [View](https://ryanstraight.github.io/azinfosci-templates/program-poster.html) |
 | **document** | HTML | Training materials and documentation with TOC | [View](https://ryanstraight.github.io/azinfosci-templates/document.html) |
 | **assignment** | HTML | Course assignments with due dates and rubrics | [View](https://ryanstraight.github.io/azinfosci-templates/assignment.html) |
 | **lab-notebook** | HTML | Research documentation with date-based entries | [View](https://ryanstraight.github.io/azinfosci-templates/lab-notebook.html) |
@@ -63,6 +64,7 @@ quarto use template ryanstraight/azinfosci-templates/presentation
 
 # Posters
 quarto use template ryanstraight/azinfosci-templates/poster
+quarto use template ryanstraight/azinfosci-templates/program-poster
 
 # Documents
 quarto use template ryanstraight/azinfosci-templates/document
@@ -97,8 +99,8 @@ Templates expect specific filenames in the `assets/` folder:
 | Template | Required File | Description |
 |----------|---------------|-------------|
 | Most templates | `assets/infosci-logo.png` | Standard logo (dark on light background) |
-| Poster, Presentation | `assets/infosci-logo-reverse.png` | White/light logo for dark backgrounds |
-| Poster | `assets/ua-logo-white.png` | UA block logo (white) for header |
+| Poster, Program Poster, Presentation | `assets/infosci-logo-reverse.png` | White/light logo for dark backgrounds |
+| Poster, Program Poster | `assets/ua-logo-white.png` | UA block logo (white) for header |
 
 ```
 your-project/
